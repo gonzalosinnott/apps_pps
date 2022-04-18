@@ -1,7 +1,9 @@
 import React from "react";
-import { Dimensions, ImageBackground, View } from "react-native";
+import { Dimensions, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import LottieView from 'lottie-react-native';
+
 
 export default function Splash() {
 
@@ -11,14 +13,12 @@ export default function Splash() {
 
     setTimeout(() => {
         navigation.replace( 'Login' );
-        }, 2800);
+        }, 5000);
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <ImageBackground style={{width: win.width ,
-                              height: win.width ,
-                              alignSelf: "center",}}  
-                        source={require('D:/Tecnicatura_en_Programación/4° Cuatrimestre/PPS/01-applogin/assets/splash.gif')} />
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" , backgroundColor: '#398148',
+  }}>
+      <LottieView source={require('D:/Tecnicatura_en_Programación/4° Cuatrimestre/PPS/app_pps/02 - TablaDidactica/assets/language.json')} autoPlay loop />      
     </View>
   );
 }

@@ -1,7 +1,7 @@
 import { useNavigation  } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React, { useEffect, useState } from 'react'
-import { ActivityIndicator, Dimensions, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Dimensions, Image, ImageBackground, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import HideWithKeyboard from 'react-native-hide-with-keyboard'
 import { auth } from '../database/firebase'
 import styles from '../styles/StyleLoginScreen'
@@ -122,14 +122,15 @@ const LoginScreen = () => {
       <View style={styles.body}>
         <Image
           style={{
-            width: win.width / 2,
-            height: win.width / 2,
+            width: win.width / 3,
+            height: win.width / 3,
             resizeMode: "contain",
             alignSelf: "center",
           }}
-          source={require("D:/Tecnicatura_en_Programación/4° Cuatrimestre/PPS/01-applogin/assets/logo.png")}
+          source={require("D:/Tecnicatura_en_Programación/4° Cuatrimestre/PPS/app_pps/02 - TablaDidactica/assets/logo.png")}
         />
-        <Text style={styles.title}>PRACTICA PROFESIONAL SUPERVISADA</Text>
+        <Text style={styles.title}>LEMON LEARN</Text>
+
         <View style={styles.inputContainer}>
 
           <View style={styles.input}>
@@ -152,26 +153,26 @@ const LoginScreen = () => {
           </View>
         </View>
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={handleLogin} style={styles.button}>
-            <Text style={styles.buttonText}>INICIAR SESION</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handelSignUp} style={[styles.button, styles.buttonOutLine]}>
-            <Text style={styles.buttonOutLineText}>REGISTRARSE</Text>
-          </TouchableOpacity>
+        <View style={{ flexDirection: "row" }}>
+            <TouchableOpacity onPress={handleLogin} style={styles.button}>
+              <Text style={styles.buttonText}>INICIAR SESION</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handelSignUp} style={[styles.button, styles.button]}>
+              <Text style={styles.buttonText}>REGISTRARSE</Text>
+            </TouchableOpacity>
         </View>
 
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity onPress={onPressAdminHandler}  style={styles.buttonRole} >
-            <FontAwesomeIcon icon={ faUserGear }  size={ 32 } />
+            <FontAwesomeIcon icon={ faUserGear }  size={ 32 } style={styles.faIcon}/>
             <Text style={styles.buttonText}>ADMIN</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={onPressTeacherHandler} style={styles.buttonRole}>
-            <FontAwesomeIcon icon={ faChalkboardTeacher }  size={ 32 } />
+            <FontAwesomeIcon icon={ faChalkboardTeacher  }  size={ 32 } style={styles.faIcon}/>
             <Text style={styles.buttonText}>DOCENTE</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={onPressStudentHandler} style={styles.buttonRole}>
-            <FontAwesomeIcon icon={ faUsersRectangle }  size={ 32 } />
+            <FontAwesomeIcon icon={ faUsersRectangle }  size={ 32 } style={styles.faIcon}/>
             <Text style={styles.buttonText}>ALUMNOS</Text>
           </TouchableOpacity>
         </View>        
@@ -179,8 +180,8 @@ const LoginScreen = () => {
 
       <View style={styles.footer}>
         <HideWithKeyboard>
-          <Text>
-            &copy; {new Date().getFullYear()} Copyright - Gonzalo Sinnott Segura
+          <Text style={styles.buttonText}>
+            &copy; {new Date().getFullYear()} Copyright - LEMON SOFTWARE
           </Text>
         </HideWithKeyboard>
 
@@ -189,7 +190,7 @@ const LoginScreen = () => {
             <View style={styles.modalBody}>
               <Text style={styles.modalText}>{errorMsg}</Text>
               <TouchableOpacity onPress={toggleModalAlert} style={styles.escapeButton}>
-                <FontAwesomeIcon icon={ faTimesCircle }  size={ 40 } />
+                <FontAwesomeIcon icon={ faTimesCircle }  size={ 40 } style={styles.faIcon} />
               </TouchableOpacity>
             </View>
           </Modal>
@@ -197,11 +198,11 @@ const LoginScreen = () => {
 
         <View>
           <Modal isVisible={isModalSpinnerVisible}>
-            <ActivityIndicator size="large" color="#ef7f1b" />
+            <ActivityIndicator size="large" color="white" />
           </Modal>
         </View>
 
-      </View>     
+      </View>  
     </View>
   );
 }

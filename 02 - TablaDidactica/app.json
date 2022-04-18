@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "01-applogin",
-    "slug": "01-applogin",
+    "name": "02-Tabla Didactica",
+    "slug": "02-TablaDidactica",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "white"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

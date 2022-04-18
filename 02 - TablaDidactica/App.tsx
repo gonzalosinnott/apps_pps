@@ -5,29 +5,40 @@ import HomeScreen from './components/screens/HomeScreen';
 import React, { useEffect } from 'react';
 import Splash from './components/screens/SplashScreen';
 import * as SplashScreen from 'expo-splash-screen';
-
-
+import { useFonts, CabinSketch_400Regular, CabinSketch_700Bold } from '@expo-google-fonts/cabin-sketch';
+import AppLoading from 'expo-app-loading';
 
 const Stack = createNativeStackNavigator();
 
 SplashScreen.preventAutoHideAsync()
   .catch(console.warn);
 
-export default function App() { 
+export default () => { 
+
+  let [fontsLoaded] = useFonts({
+    CabinSketch_400Regular,
+    CabinSketch_700Bold,
+  });
 
   useEffect(() => {
     setTimeout(async () => {
       await SplashScreen.hideAsync();
-    }, 0);
+    }, 500);
   }, [])
 
+  if (!fontsLoaded) {
+    return (
+      <AppLoading />
+    )
+  } else {
   return  (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen options =  {{ headerShown: false }}  name="SplashScreen" component={Splash} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Login" component={LoginScreen} />
-        <Stack.Screen name="Inicio" component={HomeScreen} />
+        <Stack.Screen options =  {{ headerShown: false }}  name="Inicio" component={HomeScreen} />
       </Stack.Navigator>
-    </NavigationContainer> )    
+    </NavigationContainer> );
+  }      
 }
 
