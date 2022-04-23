@@ -6,7 +6,7 @@ import HideWithKeyboard from 'react-native-hide-with-keyboard'
 import { auth } from '../database/firebase'
 import styles from '../styles/StyleLoginScreen'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faUserGear, faUsersRectangle, faChalkboardTeacher, faTimesCircle, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import Modal from "react-native-modal";
 
 const LoginScreen = () => {

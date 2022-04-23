@@ -7,7 +7,6 @@ import Splash from './components/screens/SplashScreen';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, BebasNeue_400Regular } from '@expo-google-fonts/bebas-neue';
 import AppLoading from 'expo-app-loading';
-
 const Stack = createNativeStackNavigator();
 
 SplashScreen.preventAutoHideAsync()

@@ -5,7 +5,7 @@ import HomeScreen from './components/screens/HomeScreen';
 import React, { useEffect } from 'react';
 import Splash from './components/screens/SplashScreen';
 import * as SplashScreen from 'expo-splash-screen';
-import { useFonts, BebasNeue_400Regular } from '@expo-google-fonts/bebas-neue';
+import { useFonts, AlfaSlabOne_400Regular } from '@expo-google-fonts/alfa-slab-one';
 import AppLoading from 'expo-app-loading';
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +16,7 @@ SplashScreen.preventAutoHideAsync()
 export default () => { 
 
   let [fontsLoaded] = useFonts({
-    BebasNeue_400Regular,
+    AlfaSlabOne_400Regular,
   });
 
   useEffect(() => {
