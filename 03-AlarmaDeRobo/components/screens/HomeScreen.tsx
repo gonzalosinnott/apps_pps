@@ -24,7 +24,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require("D:/TecnicaturaEnProgramación/4°Cuatrimestre/PPS/app_pps/03-AlarmaDeRobo/assets/background.png")}
+        source={require("../../assets/background.png")}
         resizeMode="cover"
         style={styles.image}
       >

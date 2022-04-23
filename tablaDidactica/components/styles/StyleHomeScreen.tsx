@@ -1,0 +1,83 @@
+import { StyleSheet } from 'react-native'
+
+export default StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  header: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+       
+  },
+  body: {
+    flex: 2,
+    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: 'center',
+    marginTop: 20, 
+  
+  },
+  button: {
+    backgroundColor: 'transparent',
+    borderColor: 'white',
+    margin: 5,
+    width: '30%',
+    padding: 10,
+    borderRadius: 25,
+    borderWidth: 2,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontFamily: "CabinSketch_700Bold",
+  },
+  exitSection: {
+    width: '90%',
+    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: 'space-between',
+    marginTop: 100,
+  },
+  exitText: {
+    color: 'white',
+    fontFamily: "CabinSketch_700Bold",
+    fontSize: 18,
+    width: '70%',
+  },
+  exitButton: {
+    backgroundColor: 'transparent',
+    borderColor: 'white',
+    margin: 5,
+    padding: 10,
+    width: '30%',
+    borderRadius: 25,
+    borderWidth: 2,
+    alignItems: 'center',
+  },
+  buttonImageIconStyle: {
+    padding: 5,
+    margin: 5,
+    height: 50,
+    width: 50,
+    resizeMode: 'contain',
+  },
+  buttonImageIcon: {
+    margin: 8,
+    height: 35,
+    width: 35,
+    resizeMode: 'contain',
+  },
+  faIcon: {
+    color: 'white',
+  }
+});
+
+
+
