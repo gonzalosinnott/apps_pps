@@ -117,7 +117,7 @@ export default StyleSheet.create({
     flexShrink: 1,
     fontFamily: 'BebasNeue_400Regular',
     fontSize: 18,
-    color: '#F0F2EF',
+    color: 'black',
   },
   escapeButton: {
     backgroundColor: '#F0F2EF',

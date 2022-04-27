@@ -27,7 +27,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
         source={require("../../assets/background.png")}
         resizeMode="cover"
         style={styles.image}
-      >
+        imageStyle = {{opacity:0.4}}>
       <View style={styles.header}>
         <View style={ styles.exitSection }>
           <Text style={styles.exitText}>USUARIO: {auth.currentUser?.email}</Text>

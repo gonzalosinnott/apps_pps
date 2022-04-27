@@ -45,7 +45,7 @@ export default StyleSheet.create({
     width: 25,
     resizeMode: 'stretch',
     alignItems: 'center',
-    color: '#5C5346',
+    color: '#30321C',
   },
   buttonLogin: {
     backgroundColor: ' rgba(194, 248, 203, 0.5);',
@@ -89,24 +89,24 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: '#5C5346',
+    color: '#30321C',
     fontSize: 15,
     fontFamily: 'Pacifico_400Regular',
   },
   roleText: {
-    color: '#5C5346',
+    color: '#30321C',
     fontSize: 15,
     fontFamily: 'Pacifico_400Regular',
   },
   footerText: {
-    color: '#5C5346',
+    color: '#30321C',
     fontSize: 20,
     fontFamily: 'Pacifico_400Regular',
   },
   title: {
     fontSize: 40,
     marginBottom: 5,
-    color: "#5C5346",
+    color: "#30321C",
     fontFamily: 'Pacifico_400Regular',
   },
   body: {
@@ -139,7 +139,7 @@ export default StyleSheet.create({
     flexShrink: 1,
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#5C5346',
+    color: '#30321C',
   },
   escapeButton: {
     backgroundColor: 'transparent',
@@ -151,7 +151,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   faIcon: {
-    color: '#5C5346',
+    color: '#30321C',
   }
 });
 

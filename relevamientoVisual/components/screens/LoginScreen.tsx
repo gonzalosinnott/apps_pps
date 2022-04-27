@@ -123,7 +123,7 @@ const LoginScreen = () => {
         source={require("../../assets/background.png")}
         resizeMode="cover"
         style={styles.image}
-      >
+        imageStyle = {{opacity:0.4}}>
       <View style={styles.body}>
         <View style={{ flexDirection: "row" , justifyContent: 'center', alignItems: 'center'}}>
           <View style={{ flexDirection: "column", justifyContent: 'center', alignItems: 'center'}}>
@@ -205,7 +205,9 @@ const LoginScreen = () => {
                   resizeMode="cover"
                   borderRadius={25}
                   style={styles.image}
-                >
+                  imageStyle = {{opacity:0.6}}
+                  >
+
                   <View style={styles.modalBody}>
                     <Text style={styles.modalText}>{errorMsg}</Text>
                     <TouchableOpacity

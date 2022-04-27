@@ -33,6 +33,16 @@ export default StyleSheet.create({
     borderWidth: 2,
     alignItems: 'center',
   },
+  buttonObject: {
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+    margin: 5,
+    width: '30%',
+    padding: 5,
+    borderRadius: 25,
+    borderWidth: 2,
+    alignItems: 'center',
+  },
   buttonText: {
     color: 'white',
     fontSize: 16,
@@ -69,9 +79,9 @@ export default StyleSheet.create({
     resizeMode: 'contain',
   },
   buttonImageIcon: {
-    margin: 8,
-    height: 35,
-    width: 35,
+    margin: 4,
+    height: 80,
+    width: 80,
     resizeMode: 'contain',
   },
   faIcon: {

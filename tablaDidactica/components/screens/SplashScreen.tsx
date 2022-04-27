@@ -1,24 +1,27 @@
 import React from "react";
-import { Dimensions, View } from "react-native";
+import { Dimensions, ImageBackground, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import LottieView from 'lottie-react-native';
+import styles from "../styles/StyleLoginScreen";
 
+const SplashScreen = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
-export default function Splash() {
+  const win = Dimensions.get("window");
 
-    const navigation = useNavigation<NativeStackNavigationProp<any>>();
-
-    const win = Dimensions.get('window');
-
-    setTimeout(() => {
-        navigation.replace( 'Login' );
-        }, 5000);
+  setTimeout(() => {
+    navigation.replace("Login");
+  }, 2500);
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" , backgroundColor: '#27372d',
-  }}>
-      <LottieView source={require('../../assets/splash.json')} autoPlay loop />      
+    <View style={{ flex:1, backgroundColor: "#27372d"}}>
+      <ImageBackground
+        source={require("../../assets/splash.gif")}
+        resizeMode="cover"
+        style={styles.image}
+      >
+      </ImageBackground>                    
     </View>
   );
-}
+};
+export default SplashScreen

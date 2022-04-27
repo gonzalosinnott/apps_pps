@@ -135,7 +135,7 @@ const LoginScreen = () => {
         source={require("../../assets/background.png")}
         resizeMode="cover"
         style={styles.image}
-      >
+        imageStyle = {{opacity:0.3}}>
         <View style={styles.body}>
           <View
             style={{
@@ -261,7 +261,7 @@ const LoginScreen = () => {
                   resizeMode="cover"
                   borderRadius={25}
                   style={styles.image}
-                >
+                  imageStyle = {{opacity:0.8}}>
                   <View style={styles.modalBody}>
                     <Text style={styles.modalText}>{errorMsg}</Text>
                     <TouchableOpacity
