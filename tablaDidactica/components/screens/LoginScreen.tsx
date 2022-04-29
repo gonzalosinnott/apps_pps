@@ -175,7 +175,7 @@ const LoginScreen = () => {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={handelSignUp}
-              style={[styles.button, styles.button]}
+              style={styles.button}
             >
               <Text style={styles.buttonText}>REGISTRARSE</Text>
             </TouchableOpacity>

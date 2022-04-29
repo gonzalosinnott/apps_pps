@@ -12,19 +12,29 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent',
-       
+    backgroundColor: 'transparent',       
   },
   body: {
     flex: 2,
     alignItems: 'center',
     flexDirection: "row",
     justifyContent: 'center',
-    marginTop: 20, 
+    marginTop: 60, 
   
   },
-  button: {
-    backgroundColor: 'transparent',
+  buttonLanguage: {
+    backgroundColor: 'rgba(53, 167, 255, 0.2);',
+    borderColor: 'black',
+    margin: 5,
+    width: '30%',
+    padding: 10,
+    borderRadius: 25,
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonCategory: {
+    backgroundColor: 'rgba(107, 241, 120, 0.2);',
     borderColor: 'white',
     margin: 5,
     width: '30%',
@@ -42,7 +52,7 @@ export default StyleSheet.create({
     borderRadius: 25,
     borderWidth: 2,
     alignItems: 'center',
-  },
+    },
   buttonText: {
     color: 'white',
     fontSize: 16,
@@ -80,8 +90,8 @@ export default StyleSheet.create({
   },
   buttonImageIcon: {
     margin: 4,
-    height: 80,
-    width: 80,
+    height: 70,
+    width: 70,
     resizeMode: 'contain',
   },
   faIcon: {
