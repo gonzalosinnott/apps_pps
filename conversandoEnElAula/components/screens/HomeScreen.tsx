@@ -1,12 +1,9 @@
-import { ImageBackground, Text, TouchableOpacity, View } from 'react-native'
+import { ImageBackground, Text, TouchableOpacity, View, Image } from 'react-native'
 import React from 'react'
 import { auth } from '../database/firebase'
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../styles/StyleHomeScreen'
-import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-
  
  const HomeScreen = () => {
 
@@ -21,6 +18,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
       .catch(error => alert(error.message))
   }
 
+  const handleSalaA = () => {
+    navigation.replace("Chat")
+  }
+
+  const handleSalaB = () => {
+    navigation.replace("Chat")
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -28,17 +33,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
         resizeMode="cover"
         style={styles.image}
         imageStyle = {{opacity:0.4}}>
+
       <View style={styles.header}>
+
         <View style={ styles.exitSection }>
           <Text style={styles.exitText}>USUARIO: {auth.currentUser?.email}</Text>
           <TouchableOpacity style={styles.exitButton} onPress={handleSignOut}>
-           <FontAwesomeIcon icon={ faPowerOff  }  size={ 32 } style={styles.faIcon}/>
+              <Image source={require("../../assets/exit.png")} style={styles.buttonImageExit} />
           </TouchableOpacity>
         </View>
+
       </View>
 
-        
       <View style={styles.body}>
+
+        <Text style={styles.buttonText}>ELIJA UNA SALA</Text>
+
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity onPress = { handleSalaA } style={styles.buttonMain}>
+            <Image source={require("../../assets/logoA.png")} style={styles.buttonImageMain} />
+            <Text style={styles.buttonText}>PPS-4A</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress = { handleSalaB } style={styles.buttonMain}>
+            <Image source={require("../../assets/logoB.png")} style={styles.buttonImageMain} />
+            <Text style={styles.buttonText}>PPS-4B</Text>
+          </TouchableOpacity>
+        </View>
 
       </View>
       </ImageBackground>

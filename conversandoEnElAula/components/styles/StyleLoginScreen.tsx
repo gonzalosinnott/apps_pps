@@ -57,6 +57,7 @@ export default StyleSheet.create({
     marginTop: 20,
     margin: 5,
     width: '40%',
+    height: '40%',
     padding: 15,
     justifyContent: 'center',
     alignItems: 'center',
@@ -91,23 +92,23 @@ export default StyleSheet.create({
   buttonText: {
     color: '#30321C',
     fontSize: 15,
-    fontFamily: 'Pacifico_400Regular',
+    fontFamily: 'PermanentMarker_400Regular',
   },
   roleText: {
     color: '#30321C',
     fontSize: 15,
-    fontFamily: 'Pacifico_400Regular',
+    fontFamily: 'PermanentMarker_400Regular',
   },
   footerText: {
     color: '#30321C',
     fontSize: 20,
-    fontFamily: 'Pacifico_400Regular',
+    fontFamily: 'PermanentMarker_400Regular',
   },
   title: {
     fontSize: 40,
     marginBottom: 5,
-    color: "#30321C",
-    fontFamily: 'Pacifico_400Regular',
+    color: "black",
+    fontFamily: 'PermanentMarker_400Regular',
   },
   body: {
     flex: 9,
@@ -140,6 +141,7 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#30321C',
+    fontFamily: 'PermanentMarker_400Regular',
   },
   escapeButton: {
     backgroundColor: 'transparent',
