@@ -7,6 +7,9 @@ import Splash from './components/screens/SplashScreen';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, AlfaSlabOne_400Regular } from '@expo-google-fonts/alfa-slab-one';
 import AppLoading from 'expo-app-loading';
+import LoadForm from './components/screens/LoadFormScreen';
+import LoadList from './components/screens/LoadListScreen';
+import LoadQR from './components/screens/LoadQRScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +39,9 @@ export default () => {
         <Stack.Screen options =  {{ headerShown: false }}  name="SplashScreen" component={Splash} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Login" component={LoginScreen} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Inicio" component={HomeScreen} />
+        <Stack.Screen options =  {{ headerShown: false }}  name="LoadQR" component={LoadQR} />
+        <Stack.Screen options =  {{ headerShown: false }}  name="LoadForm" component={LoadForm} />
+        <Stack.Screen options =  {{ headerShown: false }}  name="LoadList" component={LoadList} />
       </Stack.Navigator>
     </NavigationContainer> );
   }      

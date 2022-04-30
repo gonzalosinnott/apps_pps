@@ -21,6 +21,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
       .catch(error => alert(error.message))
   }
 
+  const loadUserByQR = () => {
+    navigation.replace("LoadQR")
+  }
+
+  const loadUserByForm = () => {
+    navigation.replace("LoadForm")
+  }
+
+  const loadUserList = () => {
+    navigation.replace("LoadList")
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -28,17 +40,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
         resizeMode="cover"
         style={styles.image}
         imageStyle = {{opacity:0.4}}>
-      <View style={styles.header}>
+
         <View style={ styles.exitSection }>
           <Text style={styles.exitText}>USUARIO: {auth.currentUser?.email}</Text>
           <TouchableOpacity style={styles.exitButton} onPress={handleSignOut}>
            <FontAwesomeIcon icon={ faPowerOff  }  size={ 32 } style={styles.faIcon}/>
           </TouchableOpacity>
         </View>
-      </View>
 
         
-      <View style={styles.body}>
+        <View style={styles.body}>
+
+        <TouchableOpacity onPress={loadUserByQR} style={styles.buttonLoadData}>
+          <Text style={styles.buttonText}>CARGA POR QR</Text>
+
+        </TouchableOpacity>
+        <TouchableOpacity onPress={loadUserByForm} style={styles.buttonLoadData}>
+          <Text style={styles.buttonText}>CARGA POR FORMULARIO</Text>         
+        </TouchableOpacity>
+        
+        <TouchableOpacity onPress={loadUserList} style={styles.buttonList}>
+              <Text style={styles.buttonText}>VER LISTADO DE USUARIOS</Text>         
+        </TouchableOpacity>
 
       </View>
       </ImageBackground>

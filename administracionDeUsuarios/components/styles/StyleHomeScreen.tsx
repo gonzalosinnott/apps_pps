@@ -16,10 +16,11 @@ export default StyleSheet.create({
     backgroundColor: 'transparent',    
   },
   body: {
-    flex: 3,
+    marginTop: 200,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent',    
+    backgroundColor: 'transparent',
+    marginBottom: 300,    
   },
   button: {
     backgroundColor: 'transparent',
@@ -33,7 +34,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 15,
     fontFamily: 'AlfaSlabOne_400Regular',
   },
   exitSection: {
@@ -43,18 +44,20 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   exitText: {
-    color: 'white',
-    fontSize: 20,
+    color: 'black',
+    fontSize: 15,
     fontFamily: 'AlfaSlabOne_400Regular',
+    marginLeft: 10,
   },
   exitButton: {
     backgroundColor: 'transparent',
-    borderColor: 'white',
+    borderColor: 'black',
     margin: 5,
     width: '30%',
     padding: 15,
     borderRadius: 25,
     borderWidth: 2,
+    marginLeft: 35,
     alignItems: 'center',
     justifyContent: "center",
   },
@@ -66,8 +69,31 @@ export default StyleSheet.create({
     resizeMode: 'contain',
   },
   faIcon: {
-    color: 'white',
-  }
+    color: 'black',
+  },
+  buttonLoadData: {
+    backgroundColor: ' rgba(131, 133, 140, 0.8);',
+    borderLeftColor: '#05153F',
+    borderLeftWidth: 10,
+    borderRadius: 10,
+    margin: 5,
+    padding: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '80%',
+  },
+  buttonList: {
+    backgroundColor: ' rgba(168, 229, 128, 0.8);',
+    borderLeftColor: '#F2C335',
+    borderLeftWidth: 10,
+    borderRadius: 10,
+    marginTop: 10,
+    margin: 5,
+    padding: 15,
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 

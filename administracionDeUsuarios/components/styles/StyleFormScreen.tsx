@@ -22,6 +22,7 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginTop: 5,
+    width: '100%',
   },
   inputImage: {
     padding: 10,
@@ -77,7 +78,7 @@ export default StyleSheet.create({
     fontFamily: 'AlfaSlabOne_400Regular',
   },
   footerText: {
-    color: 'black',
+    color: '#AD8350',
     fontSize: 15,
     fontFamily: 'AlfaSlabOne_400Regular',
   },
@@ -87,12 +88,12 @@ export default StyleSheet.create({
     fontFamily: 'AlfaSlabOne_400Regular',
   },
   textInput: {
-    color: '#18020C',
+    color: 'black',
     fontFamily: 'AlfaSlabOne_400Regular',
-    fontSize: 16,
+    fontSize: 15,
   },
   body: {
-    flex: 9,
+    flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',    
@@ -135,7 +136,35 @@ export default StyleSheet.create({
   },
   faIcon: {
     color: '#F0FFF1',
-  }
+  },
+  exitSection: {
+    flex: 1,
+    width: '90%',
+    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
+  exitText: {
+    color: 'black',
+    fontSize: 15,
+    fontFamily: 'AlfaSlabOne_400Regular',
+    textAlign: 'center',
+  },
+  exitButton: {
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+    width: '30%',
+    padding: 15,
+    borderRadius: 25,
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: "center",
+  },
+  buttonImageExit: {
+    height: 50,
+    width: 50,
+    resizeMode: 'contain',
+  },
 });
 
 
