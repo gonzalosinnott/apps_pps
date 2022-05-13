@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { Audio } from "expo-av";
 import ActionButton from "react-native-action-button";
 
+const audioPlayer = new Audio.Sound();
+
 const HomeScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -30,12 +32,10 @@ const HomeScreen = () => {
 
   const [languageFlag, setLanguageFlag] = useState(1);
   const [objectFlag, setObjectFlag] = useState(1);
-  const [AVPlaybackSource, setAVPlaybackSource] = useState(1);
 
-  const [languageIcon, setLanguageIcon] = useState(
-    require("../../assets/languages/argentina.png")
-  );
+  const [languageIcon, setLanguageIcon] = useState(require("../../assets/languages/argentina.png"));
   const [categoryIcon, setCategoryIcon] = useState(require("../../assets/categories/numbers.png"));
+  
   const [sound1, setSound1] = useState(require("../../assets/sounds/spanish/numbers/uno.mp3"));
   const [sound2, setSound2] = useState(require("../../assets/sounds/spanish/numbers/dos.mp3"));
   const [sound3, setSound3] = useState(require("../../assets/sounds/spanish/numbers/tres.mp3"));
@@ -435,15 +435,15 @@ const HomeScreen = () => {
     }
   };
 
-  async function playSound(aVPlayback: typeof AVPlaybackSource) {
+
+
+  async function playSound(sound: any) {     
     try {
-      const { sound: soundObject, status } = await Audio.Sound.createAsync(
-        aVPlayback,
-        { shouldPlay: true }
-      );
-      await soundObject.playAsync();
-    } catch (error) {
-      console.log(error);
+      await audioPlayer.unloadAsync()
+      await audioPlayer.loadAsync(sound);
+      await audioPlayer.playAsync();
+    } catch (err) {
+      console.warn("Couldn't Play audio", err)
     }
   }
 
