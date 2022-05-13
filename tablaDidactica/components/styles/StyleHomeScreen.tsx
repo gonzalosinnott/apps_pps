@@ -9,13 +9,14 @@ export default StyleSheet.create({
     justifyContent: "center"
   },
   header: {
-    flex: 1,
+    flex: 0.1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent',       
+    backgroundColor: 'transparent',
+    paddingBottom: 40,       
   },
   body: {
-    flex: 2,
+    flex: 3,
     alignItems: 'center',
     flexDirection: "row",
     justifyContent: 'center',
@@ -55,7 +56,7 @@ export default StyleSheet.create({
     },
   buttonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 20,
     fontFamily: "CabinSketch_700Bold",
   },
   exitSection: {
@@ -84,14 +85,14 @@ export default StyleSheet.create({
   buttonImageIconStyle: {
     padding: 5,
     margin: 5,
-    height: 50,
-    width: 50,
+    height: 100,
+    width: 100,
     resizeMode: 'contain',
   },
   buttonImageIcon: {
     margin: 4,
-    height: 70,
-    width: 70,
+    height: 120,
+    width: 120,
     resizeMode: 'contain',
   },
   faIcon: {
