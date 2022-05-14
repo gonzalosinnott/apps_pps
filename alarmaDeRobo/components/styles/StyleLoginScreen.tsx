@@ -88,7 +88,7 @@ export default StyleSheet.create({
     fontFamily: 'PermanentMarker_400Regular',
   },
   title: {
-    fontSize: 40,
+    fontSize: 30,
     marginTop: 50,
     color: "#A4C3B2",
     fontFamily: 'PermanentMarker_400Regular',

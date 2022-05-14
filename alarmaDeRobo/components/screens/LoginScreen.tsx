@@ -141,17 +141,16 @@ const LoginScreen = () => {
         style={styles.image}
         imageStyle = {{opacity:0.5}}>
         <View style={styles.body}>
-        <Text style={styles.title}>LEMON ALARM</Text>
-
-          <Image
-            style={{
-              width: win.width / 3,
-              height: win.width / 3,
-              resizeMode: "contain",
-              alignSelf: "center",
-            }}
-            source={require("../../assets/logo.png")}
-          />
+        <Text style={styles.title}>ALARMA ANTI ROBO</Text>
+        <Image
+          style={{
+            width: win.width / 3,
+            height: win.width / 3,
+            resizeMode: "contain",
+            alignSelf: "center",
+          }}
+          source={require("../../assets/logo.png")}
+        />
 
           <View style={styles.inputContainer}>
             <View style={styles.input}>

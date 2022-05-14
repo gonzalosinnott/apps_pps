@@ -18,8 +18,9 @@ export default StyleSheet.create({
   body: {
     flex: 3,
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',    
+    justifyContent: 'flex-start',
+    backgroundColor: 'transparent',
+        
   },
   button: {
     backgroundColor: 'transparent',
@@ -63,6 +64,8 @@ export default StyleSheet.create({
     width: 280,
     resizeMode: 'contain',
     marginBottom: 100,
+    
+    
   },
   buttonImageIconStyle: {
     padding: 10,
@@ -73,7 +76,72 @@ export default StyleSheet.create({
   },
   faIcon: {
     color: 'white',
-  }
+  },
+  modalContainer: {
+    flexDirection: "row",
+    justifyContent: 'space-between',
+  },
+  modalBody: {
+    borderColor: 'white',
+    borderWidth: 2,
+    width: '100%',
+    padding: 15,
+    borderRadius: 25,
+    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: 'space-between',
+  },
+  modalText: {
+    fontFamily: 'PermanentMarker_400Regular',
+    fontSize: 18,
+    color: '#F0F2EF',
+  },
+  escapeButton: {
+    backgroundColor: '#545454',
+    width: '25%',
+    padding: 15,
+    borderColor: '#AFD5AA',
+    borderWidth: 0,
+    borderRadius: 25,
+    alignItems: 'center',
+  },
+  input: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    borderBottomColor: '#AFD5AA',
+    borderBottomWidth: 5,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginTop: 5,
+  },
+  inputImage: {
+    padding: 10,
+    margin: 5,
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+    color: '#CCE3DE',
+  },
+  textInput: {
+    color: 'white',
+    fontFamily: 'PermanentMarker_400Regular',
+    fontSize: 18,
+  },
+  buttonStyle: {
+    backgroundColor: '#A4C3B2',
+    borderColor: '#A4C3B2',
+    marginTop: 60,
+    margin: 5,
+    width: 180,
+    height: 60,
+    padding: 15,
+    borderRadius: 30,
+    borderWidth: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }, 
 });
 
 

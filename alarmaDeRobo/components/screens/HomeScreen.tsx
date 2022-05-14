@@ -1,17 +1,149 @@
-import { ImageBackground, Text, TouchableOpacity, View, Image } from 'react-native'
-import {useState} from 'react';
-import React from 'react'
+import { ImageBackground, Text, TouchableOpacity, View, Image, Vibration, TextInput } from 'react-native'
+import {useEffect, useState} from 'react';
+import * as React from 'react'
 import { auth } from '../database/firebase'
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../styles/StyleHomeScreen'
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { showMessage } from 'react-native-flash-message';
+import { Accelerometer } from 'expo-sensors';
+import { faKey } from "@fortawesome/free-solid-svg-icons";
+import { Audio } from "expo-av";
 
- 
- const HomeScreen = () => {
+const audioPlayer = new Audio.Sound();
+
+const HomeScreen = () => {
 
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
+
+  const user:string = auth.currentUser?.email || ''; 
+  const [password, setPassword] = useState("");
+  const [start, setStart] = useState(false);
+  const [position, setPosition] = useState('horizontal');
+  const [sound, setSound] = useState<any>();
+  const [modal, setModal] = useState(false);
+  const [cord, setData] = useState({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+
+  const [subscription, setSubscription] = useState<any>(null);
+  const [flagImage, setFlagImage] = useState(true);
+  let imageAlarm = flagImage ? require('../../assets/alarmOn.png') : require('../../assets/alarmOff.png');
+
+  useEffect(()=>{
+    Accelerometer.setUpdateInterval(700);
+  },[])
+
+  const _subscribe = () => {
+    setSubscription(
+      Accelerometer.addListener(gyroscopeData => {
+        setData(gyroscopeData);
+      })
+    );
+  };
+
+  const _unsubscribe = () => {
+    subscription && subscription.remove();
+    setSubscription(null);
+  };
+
+  useEffect(() => {
+    if(cord.x>0.5){
+      setPosition('izquierda');
+    }
+    if(cord.x<-0.5){
+      setPosition('derecha');
+    }
+    if(cord.y>0.7){
+      setPosition('vertical');
+    }
+    if(cord.z>1){
+      setPosition('horizontal');
+    }
+  }, [cord.x, cord.y, cord.z]);
+
+  console.log(cord.x);
+  console.log(cord.y);
+  console.log(cord.z);
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          sound.unloadAsync(); }
+      : undefined;
+  }, [sound]);
+
+  async function playSound(sound: any) {     
+    try {
+      await audioPlayer.unloadAsync()
+      await audioPlayer.loadAsync(sound);
+      await audioPlayer.playAsync();
+    } catch (err) {
+      console.warn("Couldn't Play audio", err)
+    }
+  }
+
+  useEffect(() => {
+    if(start){
+      switch(position){
+        case 'horizontal':
+          playSound(require('../../assets/sounds/alarm1.mp3'));
+          Vibration.vibrate(5000);          
+          break;
+        case 'izquierda':
+          playSound(require('../../assets/sounds/alarm2.mp3'));          
+          break;
+        case 'derecha':
+          playSound(require('../../assets/sounds/alarm3.mp3'));
+          break;          
+        case 'vertical':
+          playSound(require('../../assets/sounds/alarm4.mp3'));
+          ///Agregar Flash
+          break;        
+      }
+    }
+  }, [position])
+
+  const handleStart = () => {
+    setFlagImage(previousState => !previousState);
+    if(!start){
+      setStart(true);
+      _subscribe();
+      setModal(true);
+    }else{
+      setStart(false);
+      _unsubscribe();
+      setModal(false);
+    }      
+  }
+
+  const handleEnd = async () => {
+    await auth
+      .signInWithEmailAndPassword(user, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        if (user) {
+          setModal(false);
+          setStart(false);
+          handleClose();
+          _unsubscribe();
+          setFlagImage(previousState => !previousState);
+          audioPlayer.pauseAsync();
+          audioPlayer.unloadAsync();
+        }
+      })
+      .catch((error) => {
+        showMessage({type:"danger", message:"Error", description:"Contraseña inválida"});
+      });
+  }
+  
+  const handleClose = () => {
+    setModal(false);
+  }
 
   const handleSignOut = () => {
     auth
@@ -21,14 +153,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
       })
       .catch(error => alert(error.message))
   }
-
-  let [flagImage, setFlagImage] = useState(true);
-
-  const handleAlarm = () => {
-    setFlagImage(previousState => !previousState);
-  }
-
-  let imageAlarm = flagImage ? require('../../assets/alarmOff.png') : require('../../assets/alarmOn.png');
 
   return (
     <View style={styles.container}>
@@ -54,14 +178,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
         </View>
 
         <View style={styles.body}>
-          <TouchableOpacity  onPress={handleAlarm} >
-            <Image
-              source={imageAlarm}
-              style={styles.buttonImageIcon}
-            />
+          <TouchableOpacity onPress={handleStart}>
+            <Image source={imageAlarm} style={styles.buttonImageIcon} />
           </TouchableOpacity>
-        </View>
 
+          {modal ? (
+            <View style={{flexDirection:'column', alignContent:'center', alignItems:'center'}} >
+              
+              <Text style={styles.modalText}>INGRESE SU CONTRASEÑA</Text> 
+              <View style={styles.input}>
+                <FontAwesomeIcon
+                  style={styles.inputImage}
+                  icon={faKey}
+                  size={15}
+                />
+                <TextInput
+                  placeholder="Contraseña  "
+                  placeholderTextColor="#989898"
+                  style={styles.textInput}
+                  value={password}
+                  onChangeText={(text) => setPassword(text)}
+                  secureTextEntry
+                  autoCompleteType='off'
+                />                       
+              </View>  
+              <TouchableOpacity onPress={handleEnd} style={styles.buttonStyle}>
+                  <Text style={styles.buttonText}>APAGAR ALARMA</Text>
+              </TouchableOpacity>  
+            </View>               
+         
+           ) : null}
+        </View>
       </ImageBackground>
     </View>
   );
