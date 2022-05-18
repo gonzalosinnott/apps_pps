@@ -3,11 +3,12 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React, { useEffect, useState } from 'react'
 import { ActivityIndicator, Dimensions, Image, ImageBackground, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import HideWithKeyboard from 'react-native-hide-with-keyboard'
-import { auth } from '../database/firebase'
 import styles from '../styles/StyleLoginScreen'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTimesCircle, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import Modal from "react-native-modal";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../App'
 
 const LoginScreen = () => {
 
@@ -57,11 +58,10 @@ const LoginScreen = () => {
   }, [])
 
   const handelSignUp = async () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Registro de usuario como: ', user?.email);        
+    await createUserWithEmailAndPassword(auth,email, password)
+          .then((userCredentials: { user: any }) => {
+            const user = userCredentials.user;
+            console.log('Registro de usuario como: ', user?.email);        
       })
       .catch(error => {
         toggleSpinnerAlert();  
@@ -86,9 +86,8 @@ const LoginScreen = () => {
   }
 
   const handleLogin = async () => {
-      await auth
-      .signInWithEmailAndPassword(email, password)
-      .then(userCredentials => {
+      await signInWithEmailAndPassword(auth,email, password)
+      .then((userCredentials: { user: any }) => {
         const user = userCredentials.user;
         console.log('Inicio de sesion como: ', user?.email);
         if (user){
@@ -127,8 +126,8 @@ const LoginScreen = () => {
       <View style={styles.body}>
         <View style={{ flexDirection: "row" , justifyContent: 'center', alignItems: 'center'}}>
           <View style={{ flexDirection: "column", justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={styles.title}>LEMON</Text>
-            <Text style={styles.title}>VOTE</Text>
+            <Text style={styles.title}>RELEVAMIENTO</Text>
+            <Text style={styles.title}>VISUAL</Text>
           </View>
           <Image
               style={{
@@ -136,6 +135,7 @@ const LoginScreen = () => {
                 height: win.width / 3,
                 resizeMode: "contain",
                 alignSelf: "center",
+                marginBottom: 5,
               }}
               source={require("../../assets/logo.png")}
             />
@@ -146,7 +146,7 @@ const LoginScreen = () => {
           <View style={styles.input}>
             <FontAwesomeIcon style={styles.inputImage} icon={ faEnvelope }  size={ 15 } />
             <TextInput
-              placeholder="Email"
+              placeholder="Correo Electrónico"
               value={email}
               onChangeText={(text) => setEmail(text)}
             />
@@ -193,7 +193,7 @@ const LoginScreen = () => {
       <View style={styles.footer}>
         <HideWithKeyboard>
           <Text style={styles.footerText}>
-            &copy; {new Date().getFullYear()} Copyright - LEMON SOFTWARE
+            &copy; {new Date().getFullYear()}  - SINNOTT SEGURA GONZALO
           </Text>
         </HideWithKeyboard>
 

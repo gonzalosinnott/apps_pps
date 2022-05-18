@@ -9,19 +9,18 @@ export default StyleSheet.create({
     justifyContent: "center"
   },
   header: {
-    flex: 0.1,
+    flex: 0.5,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent',
-    paddingBottom: 40,       
+    backgroundColor: 'transparent',          
   },
   body: {
-    flex: 3,
+    flex: 2,
     alignItems: 'center',
     flexDirection: "row",
     justifyContent: 'center',
-    marginTop: 60, 
-  
+    marginTop: 50,
+    marginBottom: 110 
   },
   buttonLanguage: {
     backgroundColor: 'rgba(53, 167, 255, 0.2);',
@@ -59,13 +58,6 @@ export default StyleSheet.create({
     fontSize: 20,
     fontFamily: "CabinSketch_700Bold",
   },
-  exitSection: {
-    width: '90%',
-    alignItems: 'center',
-    flexDirection: "row",
-    justifyContent: 'space-between',
-    marginTop: 100,
-  },
   exitText: {
     color: 'white',
     fontFamily: "CabinSketch_700Bold",
@@ -91,8 +83,8 @@ export default StyleSheet.create({
   },
   buttonImageIcon: {
     margin: 4,
-    height: 120,
-    width: 120,
+    height: 140,
+    width: 125,
     resizeMode: 'contain',
   },
   faIcon: {

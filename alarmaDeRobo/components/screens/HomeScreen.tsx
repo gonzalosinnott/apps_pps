@@ -91,17 +91,17 @@ const HomeScreen = () => {
     if(start){
       switch(position){
         case 'horizontal':
-          playSound(require('../../assets/sounds/alarm1.mp3'));
+          playSound(require('../../assets/sounds/horizontal.mp3'));
           Vibration.vibrate(5000);          
           break;
         case 'izquierda':
-          playSound(require('../../assets/sounds/alarm2.mp3'));          
+          playSound(require('../../assets/sounds/izquierda.mp3'));          
           break;
         case 'derecha':
-          playSound(require('../../assets/sounds/alarm3.mp3'));
+          playSound(require('../../assets/sounds/derecha.mp3'));
           break;          
         case 'vertical':
-          playSound(require('../../assets/sounds/alarm4.mp3'));
+          playSound(require('../../assets/sounds/vertical.mp3'));
           ///Agregar Flash
           break;        
       }
@@ -203,7 +203,7 @@ const HomeScreen = () => {
                 />                       
               </View>  
               <TouchableOpacity onPress={handleEnd} style={styles.buttonStyle}>
-                  <Text style={styles.buttonText}>APAGAR ALARMA</Text>
+                <Text style={styles.buttonText}>APAGAR ALARMA</Text>
               </TouchableOpacity>  
             </View>               
          

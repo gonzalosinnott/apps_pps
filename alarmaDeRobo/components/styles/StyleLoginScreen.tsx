@@ -79,7 +79,7 @@ export default StyleSheet.create({
   },
   roleText: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 14,
     fontFamily: 'PermanentMarker_400Regular',
   },
   footerText: {

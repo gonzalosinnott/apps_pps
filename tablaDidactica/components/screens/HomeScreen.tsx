@@ -58,28 +58,7 @@ const HomeScreen = () => {
   const [image9, setImage9] = useState(require("../../assets/numbers/nine.png"));
   const [image10, setImage10] = useState(require("../../assets/numbers/ten.png"));
 
-  const [text1, setText1] = useState("UNO");
-  const [text2, setText2] = useState("DOS");
-  const [text3, setText3] = useState("TRES");
-  const [text4, setText4] = useState("CUATRO");
-  const [text5, setText5] = useState("CINCO");
-  const [text6, setText6] = useState("SEIS");
-  const [text7, setText7] = useState("SIETE");
-  const [text8, setText8] = useState("OCHO");
-  const [text9, setText9] = useState("NUEVE");
-  const [text10, setText10] = useState("DIEZ");
-
   const setNumbersSpanish = () => {
-    setText1("UNO");
-    setText2("DOS");
-    setText3("TRES");
-    setText4("CUATRO");
-    setText5("CINCO");
-    setText6("SEIS");
-    setText7("SIETE");
-    setText8("OCHO");
-    setText9("NUEVE");
-    setText10("DIEZ");
     setImage1(require("../../assets/numbers/one.png"));
     setImage2(require("../../assets/numbers/two.png"));
     setImage3(require("../../assets/numbers/three.png"));
@@ -103,16 +82,6 @@ const HomeScreen = () => {
   };
 
   const setNumbersEnglish = () => {
-    setText1("ONE");
-    setText2("TWO");
-    setText3("THREE");
-    setText4("FOUR");
-    setText5("FIVE");
-    setText6("SIX");
-    setText7("SEVEN");
-    setText8("EIGHT");
-    setText9("NINE");
-    setText10("TEN");
     setImage1(require("../../assets/numbers/one.png"));
     setImage2(require("../../assets/numbers/two.png"));
     setImage3(require("../../assets/numbers/three.png"));
@@ -136,16 +105,6 @@ const HomeScreen = () => {
   };
 
   const setNumbersPortuguese = () => {
-    setText1("UM");
-    setText2("DOIS");
-    setText3("TRÊS");
-    setText4("QUATRO");
-    setText5("CINCO");
-    setText6("SEIS");
-    setText7("SETE");
-    setText8("OITO");
-    setText9("NOVE");
-    setText10("DEZ");
     setImage1(require("../../assets/numbers/one.png"));
     setImage2(require("../../assets/numbers/two.png"));
     setImage3(require("../../assets/numbers/three.png"));
@@ -169,16 +128,6 @@ const HomeScreen = () => {
   };
 
   const setColorsSpanish = () => {
-    setText1("NEGRO");
-    setText2("AZUL");
-    setText3("MARRON");
-    setText4("VERDE");
-    setText5("NARANJA");
-    setText6("ROSA");
-    setText7("PURPURA");
-    setText8("ROJO");
-    setText9("BLANCO");
-    setText10("AMARILLO");
     setImage1(require("../../assets/colors/black.png"));
     setImage2(require("../../assets/colors/blue.png"));
     setImage3(require("../../assets/colors/brown.png"));
@@ -202,16 +151,6 @@ const HomeScreen = () => {
   };
 
   const setColorsEnglish = () => {
-    setText1("BLACK");
-    setText2("BLUE");
-    setText3("BROWN");
-    setText4("GREEN");
-    setText5("ORANGE");
-    setText6("PINK");
-    setText7("PURPLE");
-    setText8("RED");
-    setText9("WHITE");
-    setText10("YELLOW");
     setImage1(require("../../assets/colors/black.png"));
     setImage2(require("../../assets/colors/blue.png"));
     setImage3(require("../../assets/colors/brown.png"));
@@ -235,16 +174,6 @@ const HomeScreen = () => {
   };
 
   const setColorsPortuguese = () => {
-    setText1("PRETO");
-    setText2("AZUL");
-    setText3("MARROM");
-    setText4("VERDE");
-    setText5("LARANJA");
-    setText6("ROSA");
-    setText7("ROXA");
-    setText8("VERMELHO");
-    setText9("BRANCO");
-    setText10("AMARELO");
     setImage1(require("../../assets/colors/black.png"));
     setImage2(require("../../assets/colors/blue.png"));
     setImage3(require("../../assets/colors/brown.png"));
@@ -268,16 +197,6 @@ const HomeScreen = () => {
   };
 
   const setAnimalsSpanish = () => {
-    setText1("PAJARO");
-    setText2("GATO");
-    setText3("VACA");
-    setText4("PERRO");
-    setText5("ELEFANTE");
-    setText6("PEZ");
-    setText7("CABALLO");
-    setText8("BUHO");
-    setText9("RATA");
-    setText10("TORTUGA");
     setImage1(require("../../assets/animals/bird.png"));
     setImage2(require("../../assets/animals/cat.png"));
     setImage3(require("../../assets/animals/cow.png"));
@@ -301,16 +220,6 @@ const HomeScreen = () => {
   };
 
   const setAnimalsEnglish = () => {
-    setText1("BIRD");
-    setText2("CAT");
-    setText3("COW");
-    setText4("DOG");
-    setText5("ELEPHANT");
-    setText6("FISH");
-    setText7("HORSE");
-    setText8("OWL");
-    setText9("RAT");
-    setText10("TURTLE");
     setImage1(require("../../assets/animals/bird.png"));
     setImage2(require("../../assets/animals/cat.png"));
     setImage3(require("../../assets/animals/cow.png"));
@@ -334,16 +243,6 @@ const HomeScreen = () => {
   };
 
   const setAnimalsPortuguese = () => {
-    setText1("PÁSSARO");
-    setText2("GATO");
-    setText3("VACA");
-    setText4("CACHORRO");
-    setText5("ELEFANTE");
-    setText6("PEIXE");
-    setText7("CAVALO");
-    setText8("CORUJA");
-    setText9("RATAZANA");
-    setText10("TARTARUGA");
     setImage1(require("../../assets/animals/bird.png"));
     setImage2(require("../../assets/animals/cat.png"));
     setImage3(require("../../assets/animals/cow.png"));
@@ -398,17 +297,14 @@ const HomeScreen = () => {
           case 1:
             setCategoryIcon(require("../../assets/categories/numbers.png"));
             setNumbersEnglish();
-            console.log("Numbers English");
             break;
           case 2:
             setCategoryIcon(require("../../assets/categories/chromatic.png"));
             setColorsEnglish();
-            console.log("Colors English");
             break;
           case 3:
             setCategoryIcon(require("../../assets/categories/livestock.png"));
             setAnimalsEnglish();
-            console.log("Animals English");
             break;
         }
         break;
@@ -418,17 +314,14 @@ const HomeScreen = () => {
           case 1:
             setCategoryIcon(require("../../assets/categories/numbers.png"));
             setNumbersPortuguese();
-            console.log("Numbers Portuguese");
             break;
           case 2:
             setCategoryIcon(require("../../assets/categories/chromatic.png"));
             setColorsPortuguese();
-            console.log("Colors Portuguese");
             break;
           case 3:
             setCategoryIcon(require("../../assets/categories/livestock.png"));
             setAnimalsPortuguese();
-            console.log("Animals Portuguese");
             break;
         }
         break;
@@ -455,10 +348,6 @@ const HomeScreen = () => {
         style={styles.image}
       >
         <View style={styles.header}>
-          <View style={styles.exitSection}>
-            <Text style={styles.exitText}>
-              USUARIO: {auth.currentUser?.email}
-            </Text>
             <TouchableOpacity style={styles.exitButton} onPress={handleSignOut}>
               <FontAwesomeIcon
                 icon={faPowerOff}
@@ -466,7 +355,6 @@ const HomeScreen = () => {
                 style={styles.faIcon}
               />
             </TouchableOpacity>
-          </View>
         </View>
 
         <View style={styles.body}>
@@ -477,7 +365,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound1)}
               >
                 <Image source={image1} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text1}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -485,7 +372,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound2)}
               >
                 <Image source={image2} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text2}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -493,7 +379,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound3)}
               >
                 <Image source={image3} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text3}</Text>
               </TouchableOpacity>
             </View>
 
@@ -503,7 +388,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound4)}
               >
                 <Image source={image4} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text4}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -511,7 +395,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound5)}
               >
                 <Image source={image5} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text5}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -519,7 +402,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound6)}
               >
                 <Image source={image6} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text6}</Text>
               </TouchableOpacity>
             </View>
 
@@ -529,7 +411,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound7)}
               >
                 <Image source={image7} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text7}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -537,7 +418,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound8)}
               >
                 <Image source={image8} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text8}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -545,7 +425,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound9)}
               >
                 <Image source={image9} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text9}</Text>
               </TouchableOpacity>
             </View>
 
@@ -561,7 +440,6 @@ const HomeScreen = () => {
                 onPress={() => playSound(sound10)}
               >
                 <Image source={image10} style={styles.buttonImageIcon} />
-                <Text style={styles.buttonText}>{text10}</Text>
               </TouchableOpacity>
             </View>
           </View>

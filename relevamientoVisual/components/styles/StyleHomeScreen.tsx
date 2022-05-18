@@ -44,7 +44,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: '#5C5346',
-    fontSize: 40,
+    fontSize: 35,
     fontFamily: 'BebasNeue_400Regular',
     textAlign: 'center',
   },

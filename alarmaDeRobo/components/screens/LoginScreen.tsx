@@ -160,7 +160,7 @@ const LoginScreen = () => {
                 size={15}
               />
               <TextInput
-                placeholder="Email "
+                placeholder="Correo Electrónico "
                 placeholderTextColor="#989898"
                 style={styles.textInput}
                 value={email}
@@ -227,7 +227,7 @@ const LoginScreen = () => {
                   style={styles.faIcon}
                 />
               </TouchableOpacity>
-              <Text style={styles.roleText}>ADMIN</Text>
+              <Text style={styles.roleText}>ADMINISTRADOR</Text>
             </View>
 
             <View
@@ -276,7 +276,7 @@ const LoginScreen = () => {
         <View style={styles.footer}>
           <HideWithKeyboard>
             <Text style={styles.footerText}>
-              &copy; {new Date().getFullYear()} Copyright - LEMON SOFTWARE
+              &copy; {new Date().getFullYear()} - GONZALO SINNOTT SEGURA
             </Text>
           </HideWithKeyboard>
 

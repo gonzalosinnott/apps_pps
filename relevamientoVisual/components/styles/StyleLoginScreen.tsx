@@ -20,7 +20,7 @@ export default StyleSheet.create({
     borderBottomWidth: 5,
     paddingHorizontal: 15,
     paddingVertical: 10,
-    marginTop: 5,
+    marginTop: 20,
   },
   inputImage: {
     padding: 10,
@@ -82,7 +82,7 @@ export default StyleSheet.create({
     fontFamily: 'BebasNeue_400Regular',
   },
   title: {
-    fontSize: 80,
+    fontSize: 50,
     marginBottom: 5,
     color: "#5C5346",
     fontFamily: 'BebasNeue_400Regular',

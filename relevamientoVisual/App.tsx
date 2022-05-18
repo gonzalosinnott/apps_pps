@@ -10,7 +10,18 @@ import HomeScreen from './components/screens/HomeScreen';
 import Splash from './components/screens/SplashScreen';
 import PositiveVote from './components/screens/PositiveVoteScreen';
 import NegativeVote from './components/screens/NegativeVoteScreen';
-import TakePhoto from './components/screens/TakePhotoScreen';
+
+import { firebaseConfig } from './components/database/firebase';
+import {initializeApp} from 'firebase/app';
+import {getAuth} from 'firebase/auth';
+import {getFirestore} from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+import FlashMessage from 'react-native-flash-message';
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const storage = getStorage(app);
+export const db = getFirestore(app);
 
 const Stack = createNativeStackNavigator();
 
@@ -35,15 +46,15 @@ export default () => {
     )
   } else {
   return  (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen options = {{ headerShown: false }}  name="SplashScreen" component={Splash} />
-        <Stack.Screen options = {{ headerShown: false }}  name="Login" component={LoginScreen} />
-        <Stack.Screen options = {{ headerShown: false }}  name="Inicio" component={HomeScreen} /> 
-        <Stack.Screen options = {{ headerShown: false }}   name="TakePhoto" component={TakePhoto} />       
-        <Stack.Screen options = {{ headerShown: false }}   name="PositiveVote" component={PositiveVote} />
-        <Stack.Screen options = {{ headerShown: false }}   name="NegativeVote" component={NegativeVote} />
-      </Stack.Navigator>
-    </NavigationContainer> );
-  }      
+      <NavigationContainer>
+        <FlashMessage position="top"/>
+        <Stack.Navigator>
+          <Stack.Screen options = {{ headerShown: false }}  name="SplashScreen" component={Splash} />
+          <Stack.Screen options = {{ headerShown: false }}  name="Login" component={LoginScreen} />
+          <Stack.Screen options = {{ headerShown: false }}  name="Inicio" component={HomeScreen} /> 
+          <Stack.Screen options = {{ headerShown: true }}   name="PositiveVote" component={PositiveVote} />
+          <Stack.Screen options = {{ headerShown: true }}   name="NegativeVote" component={NegativeVote} />
+        </Stack.Navigator>
+      </NavigationContainer>
+  )}      
 }

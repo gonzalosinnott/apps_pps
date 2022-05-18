@@ -61,7 +61,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 12,
     fontFamily: "CabinSketch_700Bold",
   },
   title: {

@@ -3,19 +3,19 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3c8e99'
+    backgroundColor: '#3c8e99',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   image: {
     flex: 1,
     justifyContent: "center"
   },
   exitSection: {
-    flex: 1,
     width: '90%',
     alignItems: 'center',
     flexDirection: "row",
     justifyContent: "space-evenly",
-    marginTop: 20
   },
   exitText: {
     color: 'black',
@@ -31,7 +31,6 @@ export default StyleSheet.create({
     marginRight: 60,
     borderRadius: 25,
     borderWidth: 2,
-    alignItems: 'center',
     justifyContent: "center",
   },
   buttonImageExit: {
@@ -48,11 +47,10 @@ export default StyleSheet.create({
     margin: 10,
   },
   body: {
-    flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    marginBottom: 600,    
+    marginTop: 10,
+    marginBottom: 10,
   },
   tableCell: {
     alignItems: 'center',
@@ -70,8 +68,22 @@ export default StyleSheet.create({
   },
   tableHeaderText: {
     color: 'black',
+    fontSize: 25,
+    fontFamily: 'BebasNeue_400Regular',
+  },
+  tableCellText: {
+    color: 'black',
     fontSize: 20,
     fontFamily: 'BebasNeue_400Regular',
+  },
+  cardStyle: {
+    backgroundColor: '#AFD5AA',
+    borderColor: '#F0F2EF',
+    height: 300, 
+    width: '95%', 
+    margin: 10,
+    borderRadius: 10,
+    borderWidth: 2 
   }
 });
 
