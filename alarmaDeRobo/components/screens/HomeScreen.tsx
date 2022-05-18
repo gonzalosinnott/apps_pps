@@ -7,10 +7,10 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../styles/StyleHomeScreen'
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { showMessage } from 'react-native-flash-message';
 import { Accelerometer } from 'expo-sensors';
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { Audio } from "expo-av";
+import Toast from 'react-native-simple-toast';
 
 const audioPlayer = new Audio.Sound();
 
@@ -65,10 +65,6 @@ const HomeScreen = () => {
       setPosition('horizontal');
     }
   }, [cord.x, cord.y, cord.z]);
-
-  console.log(cord.x);
-  console.log(cord.y);
-  console.log(cord.z);
 
   React.useEffect(() => {
     return sound
@@ -126,6 +122,7 @@ const HomeScreen = () => {
       .signInWithEmailAndPassword(user, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
+        console.log(user);
         if (user) {
           setModal(false);
           setStart(false);
@@ -137,9 +134,12 @@ const HomeScreen = () => {
         }
       })
       .catch((error) => {
-        showMessage({type:"danger", message:"Error", description:"Contraseña inválida"});
+        Toast.showWithGravity(
+          "CONTRASEÑA INCORRECTA",
+          Toast.LONG, 
+          Toast.CENTER);
       });
-  }
+    }
   
   const handleClose = () => {
     setModal(false);

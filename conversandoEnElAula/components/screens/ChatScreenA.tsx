@@ -1,13 +1,14 @@
-import { Text, TouchableOpacity, Image } from 'react-native'
+import { Text, TouchableOpacity, Image, View } from 'react-native'
 import React, { useCallback, useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../styles/StyleChatScreen'
 import { addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { auth, db } from '../../App';
-import { Day, GiftedChat, InputToolbar  } from 'react-native-gifted-chat'
- 
- const ChatA = () => {
+import { GiftedChat, Send } from 'react-native-gifted-chat';
+
+
+const ChatA = () => {
 
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const [messages, setMessages] = useState([]);
@@ -69,31 +70,35 @@ import { Day, GiftedChat, InputToolbar  } from 'react-native-gifted-chat'
     navigation.replace("Inicio")
     }
 
-  
+    
 
-  return (    
+return ( 
+    <GiftedChat  
+        messagesContainerStyle={{ backgroundColor: '#43cb8e', borderColor: '#43cb8e', shadowColor: '#43cb8e' }}
+        optionTintColor='#optionTintColor'
+        messages={messages}
+        onSend={messages => onSend(messages)}
+        renderUsernameOnMessage={true}
+        renderAvatarOnTop={true}
+        maxInputLength={21}
+        alwaysShowSend = {true}
+        user={{
+            _id: auth?.currentUser?.email || 1,
+            name: splitUserFromEmail(user) || '',
+        }}
+        textInputProps={{                      
+            borderColor: '#222', 
+            placeholder:"Mensaje...",                    
+            
+        }}
+        renderSend={props => (
+            <Send {...props} >
+                <View style={{marginRight: 10, marginBottom: 5}}>
+                    <Image style = {{height:35, width:35}} source={require('../../assets/send.png')} resizeMode={'center'}/>
+                </View>
+        </Send> )}
+    />     
+);}
 
-      <GiftedChat  
-            messagesContainerStyle={{ backgroundColor: '#43cb8e', borderColor: '#43cb8e', shadowColor: '#43cb8e' }}
-            optionTintColor='#optionTintColor'
-            messages={messages}
-            onSend={messages => onSend(messages)}
-            renderUsernameOnMessage={true}
-            renderAvatarOnTop={true}
-            maxInputLength={21}
-            user={{
-                _id: auth?.currentUser?.email || 1,
-                name: splitUserFromEmail(user) || '',
-            }}
-            textInputProps={{                      
-                borderColor: '#222', 
-                placeholder:"Mensaje...",                    
-                
-            }}             
-        />
-     
-  );
- }
-
- export default ChatA
+export default ChatA
  
