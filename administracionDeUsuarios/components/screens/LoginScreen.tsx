@@ -1,26 +1,14 @@
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  Dimensions,
-  Image,
-  ImageBackground,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ActivityIndicator, Dimensions, Image, ImageBackground, Text, TextInput, TouchableOpacity, View} from "react-native";
 import HideWithKeyboard from "react-native-hide-with-keyboard";
-import { auth } from "../database/firebase";
 import styles from "../styles/StyleLoginScreen";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faTimesCircle,
-  faKey,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
+import { faTimesCircle, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-native-modal";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../App'
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -69,9 +57,8 @@ const LoginScreen = () => {
   }, []);
 
   const handelSignUp = async () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
+    await createUserWithEmailAndPassword(auth,email, password)
+      .then((userCredentials: { user: any }) => {
         const user = userCredentials.user;
         console.log("Registro de usuario como: ", user?.email);
       })
@@ -98,9 +85,8 @@ const LoginScreen = () => {
   };
 
   const handleLogin = async () => {
-    await auth
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
+    await signInWithEmailAndPassword(auth,email, password)
+      .then((userCredentials: { user: any }) => {
         const user = userCredentials.user;
         console.log("Inicio de sesion como: ", user?.email);
         if (user) {

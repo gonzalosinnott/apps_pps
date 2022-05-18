@@ -21,7 +21,8 @@ export default StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 10,
-    marginTop: 5,
+    marginTop: 10,
+    marginBottom: 10,
     width: '100%',
   },
   inputImage: {
@@ -91,9 +92,10 @@ export default StyleSheet.create({
     color: 'black',
     fontFamily: 'AlfaSlabOne_400Regular',
     fontSize: 15,
+    width: '100%',
   },
   body: {
-    flex: 2,
+    flex: 1.1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',    
@@ -138,8 +140,8 @@ export default StyleSheet.create({
     color: '#F0FFF1',
   },
   exitSection: {
-    flex: 1,
-    width: '90%',
+    flex: 0.2,
+    width: '80%',
     alignItems: 'center',
     flexDirection: "row",
     justifyContent: "space-evenly",
@@ -164,6 +166,18 @@ export default StyleSheet.create({
     height: 50,
     width: 50,
     resizeMode: 'contain',
+  },
+  buttonList: {
+    backgroundColor: ' rgba(168, 229, 128, 0.8);',
+    borderLeftColor: '#F2C335',
+    borderLeftWidth: 10,
+    borderRadius: 10,
+    marginTop: 40,
+    margin: 5,
+    padding: 15,
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

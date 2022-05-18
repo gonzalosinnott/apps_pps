@@ -1,11 +1,11 @@
 import { ImageBackground, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { auth } from '../database/firebase'
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../styles/StyleHomeScreen'
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { auth } from '../../App';
 
  
  const HomeScreen = () => {
@@ -18,14 +18,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
       .then(() => {
         navigation.replace("Login")
       })
-      .catch(error => alert(error.message))
+      .catch((error: { message: any; }) => alert(error.message))
   }
 
-  const loadUserByQR = () => {
-    navigation.replace("LoadQR")
-  }
-
-  const loadUserByForm = () => {
+  const createUser = () => {
     navigation.replace("LoadForm")
   }
 
@@ -51,12 +47,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
         
         <View style={styles.body}>
 
-        <TouchableOpacity onPress={loadUserByQR} style={styles.buttonLoadData}>
-          <Text style={styles.buttonText}>CARGA POR QR</Text>
-
-        </TouchableOpacity>
-        <TouchableOpacity onPress={loadUserByForm} style={styles.buttonLoadData}>
-          <Text style={styles.buttonText}>CARGA POR FORMULARIO</Text>         
+        <TouchableOpacity onPress={createUser} style={styles.buttonLoadData}>
+          <Text style={styles.buttonText}>CARGA DE USUARIO</Text>         
         </TouchableOpacity>
         
         <TouchableOpacity onPress={loadUserList} style={styles.buttonList}>

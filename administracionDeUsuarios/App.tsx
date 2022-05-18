@@ -9,7 +9,17 @@ import { useFonts, AlfaSlabOne_400Regular } from '@expo-google-fonts/alfa-slab-o
 import AppLoading from 'expo-app-loading';
 import LoadForm from './components/screens/LoadFormScreen';
 import LoadList from './components/screens/LoadListScreen';
-import LoadQR from './components/screens/LoadQRScreen';
+
+import { firebaseConfig } from './components/database/firebase';
+import {initializeApp} from 'firebase/app';
+import {getAuth} from 'firebase/auth';
+import {getFirestore} from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const storage = getStorage(app);
+export const db = getFirestore(app);
 
 const Stack = createNativeStackNavigator();
 
@@ -39,7 +49,6 @@ export default () => {
         <Stack.Screen options =  {{ headerShown: false }}  name="SplashScreen" component={Splash} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Login" component={LoginScreen} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Inicio" component={HomeScreen} />
-        <Stack.Screen options =  {{ headerShown: false }}  name="LoadQR" component={LoadQR} />
         <Stack.Screen options =  {{ headerShown: false }}  name="LoadForm" component={LoadForm} />
         <Stack.Screen options =  {{ headerShown: false }}  name="LoadList" component={LoadList} />
       </Stack.Navigator>
