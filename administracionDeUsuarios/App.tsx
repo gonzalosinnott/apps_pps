@@ -50,7 +50,7 @@ export default () => {
         <Stack.Screen options =  {{ headerShown: false }}  name="Login" component={LoginScreen} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Inicio" component={HomeScreen} />
         <Stack.Screen options =  {{ headerShown: false }}  name="LoadForm" component={LoadForm} />
-        <Stack.Screen options =  {{ headerShown: false }}  name="LoadList" component={LoadList} />
+        <Stack.Screen options =  {{ headerShown: true }}  name="LoadList" component={LoadList} />
       </Stack.Navigator>
     </NavigationContainer> );
   }      
