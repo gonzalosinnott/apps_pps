@@ -11,9 +11,6 @@ import { splitUserFromEmail } from '../utils/utils';
 import Modal from "react-native-modal";
 import { AntDesign } from '@expo/vector-icons';
 import Toast from 'react-native-simple-toast';
-import PhotoView from 'react-native-photo-view-ex';
-
-
 
 const PositiveVote = () => {
 

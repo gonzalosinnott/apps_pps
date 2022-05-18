@@ -1,11 +1,10 @@
 import { ImageBackground, Text, TouchableOpacity, View, Image, TextInput } from 'react-native'
 import React from 'react'
-import { auth } from '../database/firebase'
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../styles/StyleChatScreen'
  
- const Chat = () => {
+ const ChatB = () => {
 
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -49,5 +48,5 @@ import styles from '../styles/StyleChatScreen'
   );
  }
 
- export default Chat
+ export default ChatB
  

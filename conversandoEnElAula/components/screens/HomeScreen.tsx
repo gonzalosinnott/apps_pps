@@ -1,9 +1,9 @@
 import { ImageBackground, Text, TouchableOpacity, View, Image } from 'react-native'
 import React from 'react'
-import { auth } from '../database/firebase'
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../styles/StyleHomeScreen'
+import { auth } from '../../App';
  
  const HomeScreen = () => {
 
@@ -19,11 +19,11 @@ import styles from '../styles/StyleHomeScreen'
   }
 
   const handleSalaA = () => {
-    navigation.replace("Chat")
+    navigation.replace("ChatA")
   }
 
   const handleSalaB = () => {
-    navigation.replace("Chat")
+    navigation.replace("ChatB")
   }
 
   return (

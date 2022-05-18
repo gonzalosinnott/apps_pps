@@ -3,11 +3,13 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React, { useEffect, useState } from 'react'
 import { ActivityIndicator, Dimensions, Image, ImageBackground, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import HideWithKeyboard from 'react-native-hide-with-keyboard'
-import { auth } from '../database/firebase'
 import styles from '../styles/StyleLoginScreen'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserSecret, faUserLock, faUser, faTimesCircle, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import Modal from "react-native-modal";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../App'
+
 
 const LoginScreen = () => {
 
@@ -57,11 +59,10 @@ const LoginScreen = () => {
   }, [])
 
   const handelSignUp = async () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Registro de usuario como: ', user?.email);        
+    await createUserWithEmailAndPassword(auth,email, password)
+      .then((userCredentials: { user: any }) => {
+      const user = userCredentials.user;
+      console.log('Registro de usuario como: ', user?.email);        
       })
       .catch(error => {
         toggleSpinnerAlert();  
@@ -86,11 +87,10 @@ const LoginScreen = () => {
   }
 
   const handleLogin = async () => {
-      await auth
-      .signInWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Inicio de sesion como: ', user?.email);
+    await signInWithEmailAndPassword(auth,email, password)
+    .then((userCredentials: { user: any }) => {
+      const user = userCredentials.user;
+      console.log('Inicio de sesion como: ', user?.email);
         if (user){
           navigation.replace('Inicio')
         }
@@ -126,7 +126,7 @@ const LoginScreen = () => {
         imageStyle = {{opacity:0.4}}>
       <View style={styles.body}>
         
-          <Text style={styles.title}>LEMON</Text>
+          <Text style={styles.title}>CONVERSANDO</Text>
           <Image
               style={{
                 width: win.width / 4,
@@ -136,7 +136,7 @@ const LoginScreen = () => {
               }}
               source={require("../../assets/logo.png")}
             />
-          <Text style={styles.title}>CHAT</Text>
+          <Text style={styles.title}>EN EL AULA</Text>
 
 
         <View style={styles.inputContainer}>
@@ -144,7 +144,7 @@ const LoginScreen = () => {
           <View style={styles.inputMail}>
             <FontAwesomeIcon style={styles.inputImage} icon={ faEnvelope }  size={ 15 } />
             <TextInput
-              placeholder="Email"
+              placeholder="Correo Electrónico"
               value={email}
               onChangeText={(text) => setEmail(text)}
             />
@@ -204,7 +204,7 @@ const LoginScreen = () => {
                   size={32}
                   style={styles.faIcon}
                 />
-                <Text style={styles.roleText}>ADMIN</Text>
+                <Text style={styles.roleText}>ADMINISTRADOR</Text>
               </TouchableOpacity>
             </View>
 
@@ -255,7 +255,7 @@ const LoginScreen = () => {
       <View style={styles.footer}>
         <HideWithKeyboard>
           <Text style={styles.footerText}>
-            &copy; {new Date().getFullYear()} Copyright - LEMON SOFTWARE
+            &copy; {new Date().getFullYear()} Copyright - SINNOTT SEGURA GONZALO
           </Text>
         </HideWithKeyboard>
 

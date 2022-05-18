@@ -7,7 +7,18 @@ import Splash from './components/screens/SplashScreen';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, PermanentMarker_400Regular } from '@expo-google-fonts/permanent-marker';
 import AppLoading from 'expo-app-loading';
-import ChatScreen from './components/screens/ChatScreen';
+import ChatScreen from './components/screens/ChatScreenA';
+
+import { firebaseConfig } from './components/database/firebase';
+import {initializeApp} from 'firebase/app';
+import {getAuth} from 'firebase/auth';
+import {getFirestore} from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const storage = getStorage(app);
+export const db = getFirestore(app);
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +48,8 @@ export default () => {
         <Stack.Screen options =  {{ headerShown: false }}  name="SplashScreen" component={Splash} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Login" component={LoginScreen} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Inicio" component={HomeScreen} />
-        <Stack.Screen options =  {{ headerShown: false }}  name="Chat" component={ChatScreen} />
+        <Stack.Screen options =  {{ headerShown: false }}  name="ChatA" component={ChatScreen} />
+        <Stack.Screen options =  {{ headerShown: false }}  name="ChatB" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer> );
   }      
