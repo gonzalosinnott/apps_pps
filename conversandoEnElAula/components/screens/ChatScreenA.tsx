@@ -1,4 +1,4 @@
-import { ImageBackground, Text, TouchableOpacity, View, Image, TextInput } from 'react-native'
+import { Text, TouchableOpacity, Image } from 'react-native'
 import React, { useCallback, useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -11,6 +11,12 @@ import { Day, GiftedChat, InputToolbar  } from 'react-native-gifted-chat'
 
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const [messages, setMessages] = useState([]);
+  const user = auth?.currentUser?.email || '';
+
+  const splitUserFromEmail = (email:string) => {
+    const emailUser = email.split('@')[0];
+    return emailUser.charAt(0).toUpperCase() + emailUser.slice(1)
+}
 
   useLayoutEffect(() => {
       const unsubscribe = onSnapshot(query(collection(db, "chatA"), orderBy("createdAt", "desc")), (snapshot =>
@@ -51,11 +57,10 @@ import { Day, GiftedChat, InputToolbar  } from 'react-native-gifted-chat'
 
             <Text style={styles.exitText}>SALA DE CHAT A</Text>
             ),
-          headerTintColor: "#fff",
-          headerTitleAlign: 'center',
+          headerTintColor: "#43cb8e",
           headerBackButtonMenuEnabled: false,
           headerStyle: {
-              backgroundColor: '#a5d1f1',  
+              backgroundColor: '#43cb8e',  
           }
       });
   }, []);
@@ -66,18 +71,10 @@ import { Day, GiftedChat, InputToolbar  } from 'react-native-gifted-chat'
 
   
 
-  return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require("../../assets/background.png")}
-        resizeMode="cover"
-        style={styles.image}
-        imageStyle = {{opacity:0.4}}>        
-
-      <View style={styles.body}>
+  return (    
 
       <GiftedChat  
-            messagesContainerStyle={{ backgroundColor: '#a5d1f1', borderColor: '#3770b6', shadowColor: '#3770b6' }}
+            messagesContainerStyle={{ backgroundColor: '#43cb8e', borderColor: '#43cb8e', shadowColor: '#43cb8e' }}
             optionTintColor='#optionTintColor'
             messages={messages}
             onSend={messages => onSend(messages)}
@@ -86,17 +83,15 @@ import { Day, GiftedChat, InputToolbar  } from 'react-native-gifted-chat'
             maxInputLength={21}
             user={{
                 _id: auth?.currentUser?.email || 1,
-                name: auth?.currentUser?.displayName || '',
+                name: splitUserFromEmail(user) || '',
             }}
             textInputProps={{                      
                 borderColor: '#222', 
-                placeholder:"Escribe un mensaje aquí...",                    
+                placeholder:"Mensaje...",                    
                 
             }}             
         />
-      </View>
-      </ImageBackground>
-    </View>
+     
   );
  }
 

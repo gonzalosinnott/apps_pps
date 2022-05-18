@@ -96,12 +96,12 @@ export default StyleSheet.create({
   },
   roleText: {
     color: '#30321C',
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: 'PermanentMarker_400Regular',
   },
   footerText: {
     color: '#30321C',
-    fontSize: 20,
+    fontSize: 15,
     fontFamily: 'PermanentMarker_400Regular',
   },
   title: {

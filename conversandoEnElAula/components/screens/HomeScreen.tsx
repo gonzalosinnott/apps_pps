@@ -50,12 +50,12 @@ import { auth } from '../../App';
         <Text style={styles.buttonText}>ELIJA UNA SALA</Text>
 
         <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity onPress = { handleSalaA } style={styles.buttonMain}>
+          <TouchableOpacity onPress = { handleSalaA } style={styles.buttonMainA}>
             <Image source={require("../../assets/logoA.png")} style={styles.buttonImageMain} />
             <Text style={styles.buttonText}>PPS-4A</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress = { handleSalaB } style={styles.buttonMain}>
+          <TouchableOpacity onPress = { handleSalaB } style={styles.buttonMainB}>
             <Image source={require("../../assets/logoB.png")} style={styles.buttonImageMain} />
             <Text style={styles.buttonText}>PPS-4B</Text>
           </TouchableOpacity>

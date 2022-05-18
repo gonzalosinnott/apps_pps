@@ -32,7 +32,7 @@ export default StyleSheet.create({
   },
   exitText: {
     color: 'black',
-    fontSize: 25,
+    fontSize: 24,
     fontFamily: 'PermanentMarker_400Regular',
     textAlign: 'center',
 

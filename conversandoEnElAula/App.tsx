@@ -7,7 +7,9 @@ import Splash from './components/screens/SplashScreen';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, PermanentMarker_400Regular } from '@expo-google-fonts/permanent-marker';
 import AppLoading from 'expo-app-loading';
-import ChatScreen from './components/screens/ChatScreenA';
+import ChatScreenA from './components/screens/ChatScreenA';
+import ChatScreenB from './components/screens/ChatScreenB';
+
 
 import { firebaseConfig } from './components/database/firebase';
 import {initializeApp} from 'firebase/app';
@@ -48,8 +50,8 @@ export default () => {
         <Stack.Screen options =  {{ headerShown: false }}  name="SplashScreen" component={Splash} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Login" component={LoginScreen} />
         <Stack.Screen options =  {{ headerShown: false }}  name="Inicio" component={HomeScreen} />
-        <Stack.Screen options =  {{ headerShown: false }}  name="ChatA" component={ChatScreen} />
-        <Stack.Screen options =  {{ headerShown: false }}  name="ChatB" component={ChatScreen} />
+        <Stack.Screen options =  {{ headerShown: true }}  name="ChatA" component={ChatScreenA} />
+        <Stack.Screen options =  {{ headerShown: true }}  name="ChatB" component={ChatScreenB} />
       </Stack.Navigator>
     </NavigationContainer> );
   }      
