@@ -38,7 +38,7 @@ import { auth } from '../../App';
         imageStyle = {{opacity:0.4}}>
 
         <View style={ styles.exitSection }>
-          <Text style={styles.exitText}>USUARIO: {auth.currentUser?.email}</Text>
+          <Text style={styles.exitText}>PANEL DE ADMINSITRADOR</Text>
           <TouchableOpacity style={styles.exitButton} onPress={handleSignOut}>
            <FontAwesomeIcon icon={ faPowerOff  }  size={ 32 } style={styles.faIcon}/>
           </TouchableOpacity>

@@ -48,18 +48,18 @@ const LoginScreen = () => {
   };
 
   const onPressAdminHandler = () => {
-    setEmail("admin@admin.com");
+    setEmail("administrador@admin.com");
     setPassword("admin123");
   };
 
   const onPressTeacherHandler = () => {
-    setEmail("user@mail.com");
-    setPassword("user123");
+    setEmail("usuario@mail.com");
+    setPassword("usuario123");
   };
 
   const onPressStudentHandler = () => {
-    setEmail("technic@admin.com");
-    setPassword("technic123");
+    setEmail("tecnico@admin.com");
+    setPassword("tecnico123");
   };
 
   useEffect(() => {
@@ -81,21 +81,21 @@ const LoginScreen = () => {
       .catch((error) => {
         toggleSpinnerAlert();
         switch (error.code) {
-          case "auth/invalid-email":
-            setErrorMsg("Formato de email incorrecto.");
-            break;
-          case "auth/email-already-in-use":
-            setErrorMsg("El email ingresado ya esta registrado.");
-            break;
-          case "auth/missing-email":
-            setErrorMsg("Ingrese el mail.");
-            break;
-          case "auth/internal-error":
-            setErrorMsg("Ingrese la contraseña.");
-            break;
-          default:
-            setErrorMsg("La contraseña debe tener mas de 6 caracteres");
-            break;
+          case 'auth/invalid-email':
+              setErrorMsg('Formato de correo electrónico incorrecto.');
+              break;                       
+            case 'auth/email-already-in-use':
+              setErrorMsg('El correo electrónico ingresado ya está registrado.');
+              break;                    
+            case 'auth/missing-email':
+              setErrorMsg('Ingrese el correo electrónico.');
+              break; 
+            case 'auth/internal-error':
+              setErrorMsg('Ingrese la contraseña.');
+              break;
+            default:
+              setErrorMsg('La contraseña debe tener más de 6 caracteres');
+              break; 
         }
       });
   };
@@ -113,21 +113,21 @@ const LoginScreen = () => {
       .catch((error) => {
         toggleSpinnerAlert();
         switch (error.code) {
-          case "auth/invalid-email":
-            setErrorMsg("Formato de email incorrecto.");
-            break;
-          case "auth/user-not-found":
-            setErrorMsg("Usuario no registrado.");
-            break;
-          case "auth/wrong-password":
-            setErrorMsg("Contraseña incorrecta.");
-            break;
-          case "auth/internal-error":
-            setErrorMsg("Ingrese contraseña.");
-            break;
-          default:
-            alert(error.message);
-            break;
+          case 'auth/invalid-email':
+              setErrorMsg('Formato de correo electrónico incorrecto.');
+              break;                   
+            case 'auth/user-not-found':
+              setErrorMsg('Usuario no registrado.');
+              break;                 
+            case 'auth/wrong-password':
+              setErrorMsg('Contraseña incorrecta.');
+              break;
+            case 'auth/internal-error':
+              setErrorMsg('Ingrese contraseña.');
+              break;;
+            default:
+                alert(error.message)  
+                break; 
         }
       });
   };
@@ -193,7 +193,7 @@ const LoginScreen = () => {
             }}
           >
             <TouchableOpacity onPress={handleLogin} style={styles.buttonLogin}>
-              <Text style={styles.buttonText}>INICIAR SESION</Text>
+              <Text style={styles.buttonText}>INICIAR SESIÓN</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={handelSignUp}
@@ -267,7 +267,7 @@ const LoginScreen = () => {
                   style={styles.faIcon}
                 />
               </TouchableOpacity>
-              <Text style={styles.roleText}>TECNICO</Text>
+              <Text style={styles.roleText}>TÉCNICO</Text>
             </View>
           </View>
 

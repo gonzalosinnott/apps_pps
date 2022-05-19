@@ -56,7 +56,7 @@ export default StyleSheet.create({
   },
   exitText: {
     color: 'black',
-    fontSize: 25,
+    fontSize: 18,
     fontFamily: 'BebasNeue_400Regular',
     textAlign: 'center',
   },

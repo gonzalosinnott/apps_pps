@@ -3,7 +3,9 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3c8e99'
+    backgroundColor: '#3c8e99',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   image: {
     flex: 1,
@@ -19,7 +21,7 @@ export default StyleSheet.create({
   },
   exitText: {
     color: 'black',
-    fontSize: 20,
+    fontSize: 15,
     fontFamily: 'AlfaSlabOne_400Regular',
     textAlign: 'center',
   },
@@ -48,11 +50,10 @@ export default StyleSheet.create({
     margin: 10,
   },
   body: {
-    flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    marginBottom: 600,    
+    marginTop: 10,
+    marginBottom: 10,
   },
   tableCell: {
     alignItems: 'center',
@@ -70,7 +71,21 @@ export default StyleSheet.create({
   },
   tableHeaderText: {
     color: 'black',
-    fontSize: 12,
+    fontSize: 20,
     fontFamily: 'AlfaSlabOne_400Regular',
+  },
+  tableCellText: {
+    color: 'black',
+    fontSize: 15,
+    fontFamily: 'AlfaSlabOne_400Regular',
+  },
+  cardStyle: {
+    backgroundColor: '#F2C335',
+    borderColor: '#F2C335',
+    height: 300, 
+    width: '95%', 
+    margin: 10,
+    borderRadius: 10,
+    borderWidth: 2 
   }
 });

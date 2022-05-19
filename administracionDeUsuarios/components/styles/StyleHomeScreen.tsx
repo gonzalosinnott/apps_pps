@@ -16,7 +16,8 @@ export default StyleSheet.create({
     backgroundColor: 'transparent',    
   },
   body: {
-    marginTop: 200,
+    flex: 1,
+    marginTop: 250,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
@@ -38,6 +39,7 @@ export default StyleSheet.create({
     fontFamily: 'AlfaSlabOne_400Regular',
   },
   exitSection: {
+    flex: 1,
     width: '90%',
     alignItems: 'center',
     flexDirection: "row",
@@ -72,6 +74,7 @@ export default StyleSheet.create({
     color: 'black',
   },
   buttonLoadData: {
+    height: 320,
     backgroundColor: ' rgba(131, 133, 140, 0.8);',
     borderLeftColor: '#05153F',
     borderLeftWidth: 10,
@@ -80,9 +83,11 @@ export default StyleSheet.create({
     padding: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    alignContent: 'center',
     width: '80%',
   },
   buttonList: {
+    height: 350,
     backgroundColor: ' rgba(168, 229, 128, 0.8);',
     borderLeftColor: '#F2C335',
     borderLeftWidth: 10,

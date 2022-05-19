@@ -33,24 +33,27 @@ const LoginScreen = () => {
   };
 
   const onPressAdminHandler = () => {
-    setEmail("admin@admin.com");
+    setEmail("administrador@admin.com");
     setPassword("admin123");
   };
 
   const onPressTeacherHandler = () => {
-    setEmail("seller@mail.com");
-    setPassword("seller123");
+    setEmail("usuario@mail.com");
+    setPassword("usuario123");
   };
 
   const onPressStudentHandler = () => {
-    setEmail("buyer@admin.com");
-    setPassword("buyer123");
+    setEmail("tecnico@admin.com");
+    setPassword("tecnico123");
   };
 
   useEffect(() => {
     const unsuscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
+      if (user?.email == "administrador@admin.com") {
         navigation.replace("Inicio");
+      }
+      else if(user) {
+        navigation.replace("LoadList");
       }
     });
     return unsuscribe;
@@ -65,21 +68,21 @@ const LoginScreen = () => {
       .catch((error) => {
         toggleSpinnerAlert();
         switch (error.code) {
-          case "auth/invalid-email":
-            setErrorMsg("Formato de email incorrecto.");
-            break;
-          case "auth/email-already-in-use":
-            setErrorMsg("El email ingresado ya esta registrado.");
-            break;
-          case "auth/missing-email":
-            setErrorMsg("Ingrese el mail.");
-            break;
-          case "auth/internal-error":
-            setErrorMsg("Ingrese la contraseña.");
-            break;
-          default:
-            setErrorMsg("La contraseña debe tener mas de 6 caracteres");
-            break;
+          case 'auth/invalid-email':
+              setErrorMsg('Formato de correo electrónico incorrecto.');
+              break;                       
+            case 'auth/email-already-in-use':
+              setErrorMsg('El correo electrónico ingresado ya está registrado.');
+              break;                    
+            case 'auth/missing-email':
+              setErrorMsg('Ingrese el correo electrónico.');
+              break; 
+            case 'auth/internal-error':
+              setErrorMsg('Ingrese la contraseña.');
+              break;
+            default:
+              setErrorMsg('La contraseña debe tener más de 6 caracteres');
+              break; 
         }
       });
   };
@@ -89,28 +92,31 @@ const LoginScreen = () => {
       .then((userCredentials: { user: any }) => {
         const user = userCredentials.user;
         console.log("Inicio de sesion como: ", user?.email);
-        if (user) {
+        if (user?.email == "administrador@admin.com") {
           navigation.replace("Inicio");
+        }
+        else if(user) {
+          navigation.replace("LoadList");
         }
       })
       .catch((error) => {
         toggleSpinnerAlert();
         switch (error.code) {
-          case "auth/invalid-email":
-            setErrorMsg("Formato de email incorrecto.");
+          case 'auth/invalid-email':
+            setErrorMsg('Formato de correo electrónico incorrecto.');
+            break;                   
+          case 'auth/user-not-found':
+            setErrorMsg('Usuario no registrado.');
+            break;                 
+          case 'auth/wrong-password':
+            setErrorMsg('Contraseña incorrecta.');
             break;
-          case "auth/user-not-found":
-            setErrorMsg("Usuario no registrado.");
-            break;
-          case "auth/wrong-password":
-            setErrorMsg("Contraseña incorrecta.");
-            break;
-          case "auth/internal-error":
-            setErrorMsg("Ingrese contraseña.");
-            break;
+          case 'auth/internal-error':
+            setErrorMsg('Ingrese contraseña.');
+            break;;
           default:
-            alert(error.message);
-            break;
+              alert(error.message)  
+              break;  
         }
       });
   };
@@ -147,8 +153,8 @@ const LoginScreen = () => {
                 alignItems: "center",
               }}
             >
-            <Text style={styles.title}>LEMON</Text>
-            <Text style={styles.title}>CREDIT</Text>
+            <Text style={styles.title}>ADMINISTRACIÓN</Text>
+            <Text style={styles.title}>DE USUARIOS</Text>
             </View>
 
           </View>
@@ -161,7 +167,7 @@ const LoginScreen = () => {
                 size={15}
               />
               <TextInput
-                placeholder="Email  "
+                placeholder="Correo Electrónico  "
                 placeholderTextColor="#E5FFDE"
                 style={styles.textInput}
                 value={email}
@@ -194,7 +200,7 @@ const LoginScreen = () => {
             }}
           >
             <TouchableOpacity onPress={handleLogin} style={styles.buttonLogin}>
-              <Text style={styles.buttonText}>INICIAR SESION</Text>
+              <Text style={styles.buttonText}>INICIAR SESIÓN</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={handelSignUp}
@@ -209,7 +215,7 @@ const LoginScreen = () => {
             style={styles.buttonRole}
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text style={styles.roleText}> ADMINISTRADOR</Text>
+              <Text style={styles.roleText}>ADMINISTRADOR</Text>
             </View>
           </TouchableOpacity>
 
@@ -218,7 +224,7 @@ const LoginScreen = () => {
             style={styles.buttonRole}
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text style={styles.roleText}> VENDEDOR</Text>
+              <Text style={styles.roleText}>USUARIO</Text>
             </View>
           </TouchableOpacity>
 
@@ -227,7 +233,7 @@ const LoginScreen = () => {
             style={styles.buttonRole}
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text style={styles.roleText}> COMPRADOR</Text>
+              <Text style={styles.roleText}>TÉCNICO</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -235,7 +241,7 @@ const LoginScreen = () => {
         <View style={styles.footer}>
           <HideWithKeyboard>
             <Text style={styles.footerText}>
-              &copy; {new Date().getFullYear()} Copyright - LEMON SOFTWARE
+              &copy; {new Date().getFullYear()} - SINNOTT SEGURA GONZALO
             </Text>
           </HideWithKeyboard>
 

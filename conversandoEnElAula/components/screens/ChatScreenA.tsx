@@ -56,7 +56,7 @@ const ChatA = () => {
           ),
           headerTitle: () => (
 
-            <Text style={styles.exitText}>SALA DE CHAT A</Text>
+            <Text style={styles.exitText}>SALA DE CONVERSACIÓN A</Text>
             ),
           headerTintColor: "#43cb8e",
           headerBackButtonMenuEnabled: false,

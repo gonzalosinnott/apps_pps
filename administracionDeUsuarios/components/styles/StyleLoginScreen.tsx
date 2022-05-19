@@ -21,7 +21,7 @@ export default StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 10,
-    marginTop: 5,
+    marginTop: 20,
   },
   inputImage: {
     padding: 10,
@@ -82,7 +82,7 @@ export default StyleSheet.create({
     fontFamily: 'AlfaSlabOne_400Regular',
   },
   title: { 
-    fontSize: 50,    
+    fontSize: 20,    
     color: "#764134",
     fontFamily: 'AlfaSlabOne_400Regular',
   },
@@ -90,6 +90,7 @@ export default StyleSheet.create({
     color: '#18020C',
     fontFamily: 'AlfaSlabOne_400Regular',
     fontSize: 16,
+    width: '100%',
   },
   body: {
     flex: 9,

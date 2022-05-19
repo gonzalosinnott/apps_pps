@@ -32,7 +32,7 @@ export default StyleSheet.create({
   },
   exitText: {
     color: 'black',
-    fontSize: 20,
+    fontSize: 15,
     fontFamily: 'PermanentMarker_400Regular',
   },
   exitButton: {

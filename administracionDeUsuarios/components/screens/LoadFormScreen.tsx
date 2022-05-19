@@ -28,12 +28,12 @@ type NewUser = {
 }
 
 const LoadForm = () => {
-  const [apellidoForm, setApellido] = useState("Apellido   ");
-  const [nombreForm, setNombre] = useState("Nombre   ");
-  const [dniForm, setDni] = useState("DNI   ");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [apellidoForm, setApellido] = useState("Apellido");
+  const [nombreForm, setNombre] = useState("Nombre");
+  const [dniForm, setDni] = useState("DNI");
+  const [emailForm, setEmail] = useState("Correro Electrónico");
+  const [passwordForm, setPassword] = useState("Contraseña");
+  const [confirmPasswordForm, setConfirmPassword] = useState("Confirmar Contraseña");
   const [scanned, setScanned] = useState(false);
   const [openQR, setOpenQR] = useState(false);
   const {control, handleSubmit, getValues, formState:{errors}, reset, setValue} = useForm<NewUser>();
@@ -113,9 +113,9 @@ const LoadForm = () => {
       await createUserWithEmailAndPassword(auth,values.email,values.email);
       const blob:any = await getBlob(image);
       const fileName = image.substring(image.lastIndexOf("/") + 1);
-      const fileRef = ref(storage, "usuariosFotos/" + fileName);
+      const fileRef = ref(storage, "administracionUsuarios/" + fileName);
       await uploadBytes(fileRef, blob);
-      await addDoc(collection(db, "usuariosInfo"), {
+      await addDoc(collection(db, "administracionUsuarios"), {
         lastName:values.apellido,
         name:values.nombre,
         dni:values.dni,
@@ -123,6 +123,7 @@ const LoadForm = () => {
         image:fileRef.fullPath,
         creationDate:new Date()
       });
+      
       Toast.showWithGravity(
         "Usuario creado exitosamente",
         Toast.LONG, 
@@ -131,12 +132,30 @@ const LoadForm = () => {
     setImage("");
     } catch (error:any) {
       Toast.showWithGravity(
-        "usuario ya existente",
+        "Usuario ya existente",
         Toast.LONG, 
         Toast.CENTER); 
     }finally{
       setLoading(false);
+      resetForm();
     }
+  }
+
+  const resetForm = () => {
+    setPlaceholderColor("grey");
+    setApellido("Apellido");
+    setNombre("Nombre");
+    setDni("DNI");
+    setEmail('Correo Electrónico');
+    setPassword('Contraseña');
+    setConfirmPassword('Confirmar Contraseña');
+    setValue("dni",'');
+    setValue("nombre",'');
+    setValue("apellido",'');
+    setValue("email",'');
+    setValue("password",'');
+    setValue("confirmPassword",'');
+    setImage("");
   }
 
   const handleCamera = async (type) => {
@@ -156,7 +175,7 @@ const LoadForm = () => {
     setModalSpinnerVisible(true);
     setTimeout(() => {
       setModalSpinnerVisible(false);
-    }, 3000);
+    }, 4000);
   };
 
   return (
@@ -184,7 +203,6 @@ const LoadForm = () => {
          
 
         <View style={styles.body}> 
-
           <View style={{
             flexDirection: 'row', 
             alignContent: 'center', 
@@ -244,7 +262,7 @@ const LoadForm = () => {
 
             <View style={styles.input}>
               <TextInput
-                placeholder="Correo Electrónico   "
+                placeholder= {emailForm}
                 placeholderTextColor="grey"
                 style={styles.textInput}
                 onChangeText={(text) => setValue("email",text)}
@@ -253,21 +271,21 @@ const LoadForm = () => {
 
             <View style={styles.input}>
               <TextInput
-                placeholder="Contraseña   "
+                placeholder= {passwordForm}
                 placeholderTextColor="grey"
                 style={styles.textInput}
                 onChangeText={(text) => setValue("password",text)}
-                secureTextEntry
+                secureTextEntry = {true}
               />
             </View>
 
             <View style={styles.input}>
               <TextInput
-                placeholder="Confirmar Contraseña   "
+                placeholder= {confirmPasswordForm}
                 placeholderTextColor="grey"
                 style={styles.textInput}
                 onChangeText={(text) => setValue("confirmPassword",text)}
-                secureTextEntry
+                secureTextEntry = {true}
               />
             </View>
           </View>

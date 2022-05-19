@@ -34,7 +34,7 @@ const LoginScreen = () => {
   };  
 
   const onPressAdminHandler = () => {
-    setEmail("admin@admin.com");
+    setEmail("administrador@admin.com");
     setPassword("admin123");
   }
 
@@ -67,19 +67,19 @@ const LoginScreen = () => {
         toggleSpinnerAlert();  
         switch (error.code) {  
             case 'auth/invalid-email':
-              setErrorMsg('Formato de email incorrecto.');
+              setErrorMsg('Formato de correo electrónico incorrecto.');
               break;                       
             case 'auth/email-already-in-use':
-              setErrorMsg('El email ingresado ya esta registrado.');
+              setErrorMsg('El correo electrónico ingresado ya está registrado.');
               break;                    
             case 'auth/missing-email':
-              setErrorMsg('Ingrese el mail.');
+              setErrorMsg('Ingrese el correo electrónico.');
               break; 
             case 'auth/internal-error':
               setErrorMsg('Ingrese la contraseña.');
               break;
             default:
-              setErrorMsg('La contraseña debe tener mas de 6 caracteres');
+              setErrorMsg('La contraseña debe tener más de 6 caracteres');
               break;   
         }
     })
@@ -98,7 +98,7 @@ const LoginScreen = () => {
         toggleSpinnerAlert();  
          switch (error.code) { 
             case 'auth/invalid-email':
-              setErrorMsg('Formato de email incorrecto.');
+              setErrorMsg('Formato de correo electrónico incorrecto.');
               break;                   
             case 'auth/user-not-found':
               setErrorMsg('Usuario no registrado.');
@@ -165,7 +165,7 @@ const LoginScreen = () => {
 
         
             <TouchableOpacity onPress={handleLogin} style={styles.buttonLogin}>
-              <Text style={styles.buttonText}>INICIAR SESION</Text>
+              <Text style={styles.buttonText}>INICIAR SESIÓN</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={handelSignUp} style={styles.buttonRegister}>
               <Text style={styles.buttonText}>REGISTRARSE</Text>

@@ -103,7 +103,7 @@ const HomeScreen = () => {
     });
     if (!result.cancelled) {
       Toast.showWithGravity(
-        "Imágen cargada exitosamente",
+        "Imagen cargada exitosamente",
         Toast.SHORT, 
         Toast.CENTER);
       await uploadImage(result["uri"]);
